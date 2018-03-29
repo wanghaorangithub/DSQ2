@@ -59,6 +59,11 @@ public:
 	T getTop() {
 		if (top != nullptr)
 			return top->data;
+		else
+		{
+			cout << "stack is empty!";
+			exit(1);
+		}
 	}
 	bool isEmpty() {
 		if (top == nullptr)
