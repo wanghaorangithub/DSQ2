@@ -10,7 +10,7 @@ bool isNumber(char ch);		//判断是否为数字，是则返回true
 bool isOperator(char op);                         // 判断是否为运算符  
 int getPriority(char op);                            // 求运算符优先级  
 string infixToPostfix(string pre);    // 把中缀表达式转换为后缀表达式  
-int readNumber(string str);            // 将数字字符串转变成相应的数字  
+double readNumber(string str);            // 将数字字符串转变成相应的数字  
 double getPostfixValue(string post);                // 由后缀表达式字符串计算相应的中值表达式的值    
 
 bool isNumber(char ch) {
