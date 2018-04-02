@@ -58,11 +58,11 @@ string infixToPostfix(string pre) {
 		if (isNumber(pre[i])) {// 遇到数字直接写入后缀表达式  
 			post.push_back(pre[i]);
 		}
-		else if (pre[i] == '('|| pre[i] == '（')   // 遇到“（”不用比较直接入栈  
+		else if (pre[i] == '(')   // 遇到“（”不用比较直接入栈  
 			stack.push(pre[i]);
-		else if (pre[i] == ')'||pre[i]=='）')  // 遇到右括号将其对应左括号后的操作符（操作符栈中的）全部写入后缀表达式  
+		else if (pre[i] == ')')  // 遇到右括号将其对应左括号后的操作符（操作符栈中的）全部写入后缀表达式  
 		{
-			while (stack.getTop() != '('&& stack.getTop() != '（')
+			while (stack.getTop() != '(')
 			{
 				post.push_back(stack.pop());
 			}
@@ -77,7 +77,7 @@ string infixToPostfix(string pre) {
 		else if (isOperator(pre[i]))
 		{
 			post.push_back(' ');; // 用空格分开操作数
-			while (!stack.isEmpty() && getPriority(pre[i]) <= getPriority(stack.getTop()))
+			while (!stack.isEmpty() && getPriority(pre[i]) <= getPriority(stack.getTop()) && stack.getTop() != '(')
 			{
 				// 当前的操作符小于等于栈顶操作符的优先级时，将栈顶操作符写入到后缀表达式，重复此过程  
 				post.push_back(stack.pop());
